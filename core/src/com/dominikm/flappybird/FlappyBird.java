@@ -57,7 +57,6 @@ public class FlappyBird extends ApplicationAdapter {
 		font.setColor(Color.WHITE);
 		font.getData().setScale(10);
 
-
 		tubeTopRectangle = new Rectangle[numberOfTubes];
 		tubeBottomRectangle = new Rectangle[numberOfTubes];
 
@@ -67,8 +66,7 @@ public class FlappyBird extends ApplicationAdapter {
 		randomgenerator = new Random();
 
 		distanceBetweenTubes  = Gdx.graphics.getWidth()  * 3/ 4 ;
-
-
+		
 		birdpng[0] = "bird.png";
 		birdpng[1] = "bird2.png";
 
