@@ -21,21 +21,13 @@ public class FlappyBird extends ApplicationAdapter {
 	SpriteBatch batch;
 	Texture background;
 	Texture gameover;
-	//ShapeRenderer shapeRenderer;
+
 	BitmapFont font;
 
-	//Texture[] birds;
-
-
-	//int flapState = 0;
-	//float birdY =  0;
-	//float velocity = 0;
-	//float gravity = 1.5f;
 	Circle birdCircle;
 	Rectangle[] tubeTopRectangle;
 	Rectangle[] tubeBottomRectangle;
 
-	//int gameState = 0;
 
 	Texture bottomTube;
 	Texture topTube;
@@ -51,9 +43,6 @@ public class FlappyBird extends ApplicationAdapter {
 
 	String[] birdpng = new String[2];
 
-	//int score = 0;
-	//int scoringTube = 0;
-
 	@Override
 	public void create () {
 		batch = new SpriteBatch();
@@ -62,7 +51,7 @@ public class FlappyBird extends ApplicationAdapter {
 		game = new Game();
 
 
-		//shapeRenderer = new ShapeRenderer();
+
 		birdCircle = new Circle();
 		font = new BitmapFont();
 		font.setColor(Color.WHITE);
@@ -85,9 +74,6 @@ public class FlappyBird extends ApplicationAdapter {
 
 		bird = new Bird(birdpng);
 
-		//birds =  new Texture[2];
-		//birds[0] = new Texture("bird.png");
-		//birds[1] = new Texture("bird2.png");
 
 		startGame();
 
@@ -144,7 +130,7 @@ public class FlappyBird extends ApplicationAdapter {
 					tubeX[i] = tubeX[i] - tubeVelocity;
 				}
 
-				//tubeX[i] = tubeX[i] - tubeVelocity;
+
 
 				//draw tubes
 				batch.draw(bottomTube, tubeX[i], Gdx.graphics.getHeight() / 2 - gap / 2 - bottomTube.getHeight() + tubeOffset[i]);
@@ -192,22 +178,15 @@ public class FlappyBird extends ApplicationAdapter {
 
 		birdCircle.set(Gdx.graphics.getWidth() / 2, bird.y + bird.birds[bird.flapState].getHeight() / 2, bird.birds[bird.flapState].getWidth() / 2);
 
-		//shapeRenderer.begin(ShapeRenderer.ShapeType.Filled);
-		//shapeRenderer.setColor(Color.RED);
-		//shapeRenderer.circle(birdCircle.x, birdCircle.y, birdCircle.radius);
-
 		for(int i = 0; i < numberOfTubes; i++) {
 
-			//shapeRenderer.rect(tubeBottomRectangle[i].x, tubeBottomRectangle[i].y, tubeBottomRectangle[i].width, tubeBottomRectangle[i].height);
-			//shapeRenderer.rect(tubeTopRectangle[i].x, tubeTopRectangle[i].y, tubeTopRectangle[i].width, tubeTopRectangle[i].height);
-
-			if(Intersector.overlaps(birdCircle, tubeBottomRectangle[i]) || Intersector.overlaps(birdCircle, tubeTopRectangle[i]))
+		if(Intersector.overlaps(birdCircle, tubeBottomRectangle[i]) || Intersector.overlaps(birdCircle, tubeTopRectangle[i]))
 			{
 				Gdx.app.log("Collision", "Boom!");
 				game.gameState = 2;
 			}
 		}
-			//shapeRenderer.end();
+
 	}
 	
 	@Override
